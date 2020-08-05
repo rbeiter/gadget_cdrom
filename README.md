@@ -16,9 +16,10 @@
 ### Keys
 * Key1 - Insert iso to the virtual cdrom
 * Key2 - Remove iso from virtual cdrom
-* Key3 - Change mode
+* Key3 - Safe shutdown
 * Joystick Down - next iso
 * Joystick Up - previous iso
+* Joystick Press - Change mode
 
 ## Installation
 ### Install dependecies

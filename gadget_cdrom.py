@@ -190,6 +190,9 @@ class State:
          script = os.path.join(APP_DIR, "remove_iso.sh")
          subprocess.check_call((script,))
 
+    def shutdown(self):
+         script = os.path.join(APP_DIR, "shutdown.sh")
+         subprocess.check_call((script,))
 
 class Display:
     def __init__(self):
@@ -285,9 +288,10 @@ class WVSButtons:
     BUTTON_NAMES = {
         KEY1 : "mount",
         KEY2 : "umount",
-        KEY3 : "mode",
+        KEY3 : "shutdown",
         J_UP : "up",
         J_DOWN : "down",
+        J_PRESS : "mode",
     }
 
 
@@ -305,6 +309,7 @@ class Main:
             "mount" : self._button_mount,
             "umount" : self._button_umount,
             "mode" : self._button_mode,
+            "shutdown" : self._button_shutdown,
         }
 
     def main(self):
@@ -336,6 +341,9 @@ class Main:
         if self._state.get_mode() != MODE_CD:
             return
         self._state.remove_iso()
+
+    def _button_shutdown(self):
+        self._state.shutdown()
 
 
 if __name__ == "__main__":
